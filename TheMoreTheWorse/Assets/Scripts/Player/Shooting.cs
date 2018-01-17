@@ -11,10 +11,12 @@ public class Shooting : MonoBehaviour {
     public bool canShoot;
 
     Animator anim;
+    Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         canShoot = true;
     }
 	
@@ -29,6 +31,7 @@ public class Shooting : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector3.zero;
                 anim.SetBool("Shoot", true);
                 Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation);
                 StartCoroutine(ShootAnim());

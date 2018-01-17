@@ -12,10 +12,12 @@ public class Movement : MonoBehaviour {
     public bool isGrounded;
 
     private Rigidbody2D rb;
+    private Animator anim;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +34,7 @@ public class Movement : MonoBehaviour {
         if (coll.tag == "GroundCheck")
         {
             isGrounded = true;
-        }
+        }        
     }
 
     private void FixedUpdate()
@@ -40,6 +42,11 @@ public class Movement : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(speed * h, rb.velocity.y);
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            anim.SetBool("Walking", true);
+        else
+            anim.SetBool("Walking", false);
 
         if (rb.velocity.x > 0)
         {

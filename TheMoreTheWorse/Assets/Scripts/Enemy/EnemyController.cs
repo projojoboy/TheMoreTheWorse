@@ -17,10 +17,13 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         currentHP = maxHP;
-        player = GameObject.Find("Player");
-        if(player.transform.position.x < gameObject.transform.position.x)
+        if (GameObject.Find("Player"))
         {
-            movementSpeed = -movementSpeed;
+            player = GameObject.Find("Player");
+            if (player.transform.position.x < gameObject.transform.position.x)
+            {
+                movementSpeed = -movementSpeed;
+            }
         }
 	}
 	

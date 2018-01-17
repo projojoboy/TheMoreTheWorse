@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour {
     public float currentHP;
 
     private float tempRemoveHP;
+
+    [SerializeField] Text textHP;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +23,8 @@ public class Health : MonoBehaviour {
         {
             Death();
         }
+
+        textHP.text = "Health: " + currentHP;
 	}
 
     public void RemoveHP(float HealthToBeRemoved)
@@ -38,6 +43,7 @@ public class Health : MonoBehaviour {
         {
             tempRemoveHP = coll.GetComponent<EnemyController>().damage;
             RemoveHP(tempRemoveHP);
+            Destroy(coll.gameObject);
         }
     }
 }

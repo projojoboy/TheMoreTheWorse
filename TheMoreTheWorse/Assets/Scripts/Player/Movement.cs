@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour {
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
 
+    public bool left;
+    public bool right;
     public bool isGrounded;
 
     private Rigidbody2D rb;
@@ -38,5 +40,14 @@ public class Movement : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(speed * h, rb.velocity.y);
+
+        if (rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(3f, 3f, 1f);
+        }
+        else if(rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-3f, 3f, 1f);
+        }
     }
 }

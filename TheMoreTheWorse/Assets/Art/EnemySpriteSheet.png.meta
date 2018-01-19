@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: ac18e2da4afaaef47aef26b82d3e9e77
-timeCreated: 1516370024
+guid: b95ecae05bc1a754bb4a21f71d5fadbc
+timeCreated: 1516367512
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerIdle
-    21300002: PlayerShoot1
-    21300004: PlayerWalk1
-    21300006: PlayerWalk2
-    21300008: PlayerWalk3
+    21300000: EnemySkalet1
+    21300002: EnemySkalet2
+    21300004: EnemySkalet3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -95,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle
+      name: EnemySkalet1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 256
-        width: 47
-        height: 60
+        x: 8
+        y: 241
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,13 +107,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerShoot1
+      name: EnemySkalet2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 256
-        width: 47
-        height: 60
+        x: 92
+        y: 242
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,41 +121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalk1
+      name: EnemySkalet3
       rect:
         serializedVersion: 2
-        x: 11
-        y: 190
-        width: 45
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalk2
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 190
-        width: 47
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalk3
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 191
-        width: 54
-        height: 57
+        x: 180
+        y: 243
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

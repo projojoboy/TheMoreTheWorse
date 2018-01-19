@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Update () {
         if (spawn)
         {
-            spawnDelay = Random.Range(1f, 3f);
+            spawnDelay = Random.Range(3f, 5f);
             Instantiate(Enemy, transform.position, transform.rotation);
             spawn = false;
             StartCoroutine(SpawnEnemy());

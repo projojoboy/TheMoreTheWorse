@@ -24,6 +24,11 @@ public class EnemyController : MonoBehaviour {
             {
                 movementSpeed = -movementSpeed;
             }
+
+            if(player.transform.position.x > gameObject.transform.position.x)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
 	}
 	

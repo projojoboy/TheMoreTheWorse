@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour {
     public float damage;
     public float movementSpeed;
 
+    [SerializeField] private bool specialMon;
+    [SerializeField] private int amountGoldenCoins;
+    [SerializeField] private int amountPurpleCoins;
     private GameObject player;
 
     Rigidbody2D rb;
@@ -17,6 +20,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         currentHP = maxHP;
+        Vector3 newScale = gameObject.transform.localScale;
         if (GameObject.Find("Player"))
         {
             player = GameObject.Find("Player");
@@ -27,7 +31,8 @@ public class EnemyController : MonoBehaviour {
 
             if(player.transform.position.x > gameObject.transform.position.x)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
             }
         }
 	}
@@ -35,15 +40,28 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
-
-        if(currentHP <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Death();
     }
 
     public void RemoveHP(int removeHP)
     {
         currentHP -= removeHP;
+    }
+
+    void Death()
+    {
+        if(currentHP <= 0)
+        {
+            if (specialMon)
+            {
+                GameObject.Find("Canvas").GetComponent<CurrencyController>().AddGoldenCoins(amountGoldenCoins);
+            }
+            else if (!specialMon)
+            {
+                GameObject.Find("Canvas").GetComponent<CurrencyController>().AddPurpleCoins(amountPurpleCoins);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

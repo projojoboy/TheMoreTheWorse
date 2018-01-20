@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] int _playerNumber = 1;
 
     public bool left;
     public bool right;
@@ -39,11 +39,12 @@ public class Movement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
+        //float h = Input.GetAxis("Horizontal");
+        float h = -(Convert.ToInt32(InputController.GetInput.Left(_playerNumber)) - Convert.ToInt32(InputController.GetInput.Right(_playerNumber)));
 
         rb.velocity = new Vector2(speed * h, rb.velocity.y);
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (InputController.GetInput.Left(_playerNumber) || InputController.GetInput.Right(_playerNumber))
             anim.SetBool("Walking", true);
         else
             anim.SetBool("Walking", false);

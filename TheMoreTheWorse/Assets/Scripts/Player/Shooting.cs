@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour {
     [SerializeField] GameObject shootPointRifles;
     [SerializeField] GameObject shotgunBullet;
     [SerializeField] GameObject assaultBullet;
+    [SerializeField] private int _player = 1;
 
     private float fireRate;
 
@@ -39,7 +40,7 @@ public class Shooting : MonoBehaviour {
     {
         if (canShoot)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (InputController.GetInput.Shoot(_player))
             {
                 rb.velocity = Vector3.zero;
                 anim.SetBool("Shoot", true);
@@ -70,9 +71,9 @@ public class Shooting : MonoBehaviour {
 
     void WeaponSwapping()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (InputController.GetInput.Weapon1(_player))
             equippedWeapon = 1;
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (InputController.GetInput.Weapon2(_player))
             equippedWeapon = 2;
 
         switch (equippedWeapon)

@@ -817,6 +817,7 @@ MonoBehaviour:
     enemy: {fileID: 4888862280645928, guid: aa249cfc6ce8e6849bf58fa4b6c90db8, type: 2}
     count: 5
     rate: 2
+  waveText: {fileID: 157302590}
   spawnPoints:
   - {fileID: 1646236911}
   - {fileID: 2081047430}

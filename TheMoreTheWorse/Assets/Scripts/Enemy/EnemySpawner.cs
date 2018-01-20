@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
@@ -17,6 +18,8 @@ public class EnemySpawner : MonoBehaviour {
 
     public Wave[] waves;
     private int nextWave = 0;
+
+    [SerializeField] Text waveText;
 
     public Transform[] spawnPoints;
 
